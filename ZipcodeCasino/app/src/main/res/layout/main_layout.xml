@@ -79,7 +79,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:text="Poker"/>
-        <Button
+
+        <!--<Button-->
             android:textColor="#424949"
             android:textSize="25sp"
             android:layout_width="270dp"
@@ -95,6 +96,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="Roulette"/>
+        <!---->
 
     </LinearLayout>
 
