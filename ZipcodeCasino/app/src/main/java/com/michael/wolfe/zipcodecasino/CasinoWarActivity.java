@@ -17,6 +17,7 @@ public class CasinoWarActivity extends AppCompatActivity implements View.OnClick
     Button btnCWHit;
     Casino_Wars aCasinoWar = new Casino_Wars();
     UserIO aUI = new UserIO();
+    boolean playYet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +25,38 @@ public class CasinoWarActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.casino_war_activity);
         btnCWDeal = (Button) findViewById(R.id.btnWarStart);
         btnCWHit = (Button) findViewById(R.id.btnWarHit);
-  //      btnCWDeal.setOnClickListener(this);
-//        btnCWHit.setOnClickListener(this);
+        btnCWDeal.setOnClickListener(this);
+       btnCWHit.setOnClickListener(this);
     }
+
+
 
     @Override
     public void onClick(View v) {
         Intent intent;
         int id = v.getId();
         TextView startCWTV = (TextView) findViewById(R.id.btnWarStart);
-        TextView hitCWTV = (TextView) findViewById(R.id.btnWarHit);
+        TextView displayAnswerTV = (TextView) findViewById(R.id.displayWarTV);
 
         switch(id) {
             case R.id.btnWarStart:
+                aCasinoWar.initializeCW();;
+                aCasinoWar.dealCards();
                 break;
-            case R.id.btnWarHit:
-                break;
-        }
 
+            case R.id.btnWarHit:
+
+                if (!playYet) {
+                    displayAnswerTV.setText("");
+                    displayAnswerTV.append(aCasinoWar.displayWinner());
+                    playYet = true;
+                    break;
+                } else {
+                    aCasinoWar.dealCards();
+                    displayAnswerTV.setText("");
+                    displayAnswerTV.append(aCasinoWar.displayWinner());
+                    break;
+                }
+        }
     }
 }
