@@ -10,30 +10,37 @@ import android.widget.Button;
  */
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
-    Button btnWordOne;
-    Button btnWordTwo;
-    Button btnWordThree;
-    Button btnWordFour;
+    Button btnBlackJack;
+    Button btnCasinoWar;
+    Button btnPoker;
+    Button btnRoulette;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
-        btnWordOne = (Button) findViewById(R.id.btnWordOne);
-        btnWordOne.setOnClickListener(this);
-        btnWordTwo = (Button) findViewById(R.id.btnWordTwo);
-        btnWordTwo.setOnClickListener(this);
-        btnWordThree = (Button) findViewById(R.id.btnWordThree);
-        btnWordThree.setOnClickListener(this);
-        btnWordFour = (Button) findViewById(R.id.btnWordFour);
-        btnWordFour.setOnClickListener(this);
+        btnBlackJack = (Button) findViewById(R.id.btnBlackJack);
+        btnCasinoWar = (Button) findViewById(R.id.btnCasinoWar);
+        btnPoker = (Button) findViewById(R.id.btnPoker);
+        btnRoulette = (Button) findViewById(R.id.btnRoulette);
+
+        btnBlackJack.setOnClickListener(this);
+        btnCasinoWar.setOnClickListener(this);
+        btnPoker.setOnClickListener(this);
+        btnRoulette.setOnClickListener(this);
+        
     }
 
     @Override
     public void onClick(View v) {
         Button pressed = (Button) v;
-        String buttonText = pressed.getText().toString();
+
+
+
+
+        //String buttonText = pressed.getText().toString();
         //switch between games
 
     }

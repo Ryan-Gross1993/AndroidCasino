@@ -18,11 +18,11 @@
             android:layout_height="match_parent"
             android:textSize="25dp"
             android:id="@+id/scorePrompt"
-            android:text="Score: "/>
+            android:text="Balance:"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:id="@+id/tvScore"/>
 
     </LinearLayout>
@@ -32,9 +32,8 @@
         android:orientation="vertical"
         android:gravity="center">
         <Button
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-
+            android:textColor="#424949"
+            android:textSize="25sp"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:background="@drawable/buttonshape"
@@ -42,15 +41,15 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:id="@+id/btnWordOne"
+            android:id="@+id/btnBlackJack"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:text="BlackJack"/>
         <Button
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-
+            android:textColor="#424949"
+            android:textSize="25sp"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:background="@drawable/buttonshape"
@@ -58,14 +57,15 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:id="@+id/btnWordTwo"
+            android:id="@+id/btnCasinoWar"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:text="Casino War"/>
         <Button
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textColor="#424949"
+            android:textSize="25sp"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:background="@drawable/buttonshape"
@@ -73,14 +73,15 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:id="@+id/btnWordThree"
+            android:id="@+id/btnPoker"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:text="Poker"/>
         <Button
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textColor="#424949"
+            android:textSize="25sp"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:background="@drawable/buttonshape"
@@ -88,11 +89,12 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:id="@+id/btnWordFour"
+            android:id="@+id/btnRoulette"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="Roulette"/>
 
     </LinearLayout>
 
