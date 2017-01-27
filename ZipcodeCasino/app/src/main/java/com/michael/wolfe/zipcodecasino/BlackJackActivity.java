@@ -47,6 +47,10 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
     public void dealOnce(TextView v) {
         aBlackJack.dealCard(aBlackJack.userHand);
         v.append(String.valueOf("\nYou're now at: " + aBlackJack.regularScore(aBlackJack.userHand)));
+
+        if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
+            v.append("\n Busted!");
+        }
     }
 
 
@@ -66,28 +70,29 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
                     userScoreTV.append(aBlackJack.displayAllDealerCards(aUI));
                     userScoreTV.append(aBlackJack.compareScores(aUI));
                     changeBalance(userBalanceTV);
+                    break;
                 } else {
                     userScoreTV.append(aBlackJack.showCards(aUI));
+                    break;
                 }
-             break;
+
             case R.id.btnHit:
 
                 if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
-                userScoreTV.append("\nYou already busted!");
-                } else if (aBlackJack.hasBlackJack(aBlackJack.userHand)) {
+                    userScoreTV.append("\nYou busted!");
                     userScoreTV.append(aBlackJack.compareScores(aUI));
                     //changeBalance(userBalanceTV);
                 } else {
                     dealOnce(userScoreTV);
                     if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
-                        userScoreTV.append(aBlackJack.compareScores(aUI));
+                        userScoreTV.append("\n" + aBlackJack.displayAllDealerCards(aUI));
+                        userScoreTV.append("\n" + aBlackJack.compareScores(aUI));
                         //changeBalance(userBalanceTV);
-
+                        break;
                     } else {
-                        aBlackJack.hitForAndroid(aUI, aBlackJack.userHand);
+                        break;
                     }
                 }
-                break;
         }
     }
 
