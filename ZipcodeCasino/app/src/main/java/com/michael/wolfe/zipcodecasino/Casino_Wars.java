@@ -6,11 +6,7 @@ package com.michael.wolfe.zipcodecasino;
 import java.util.ArrayList;
 
 public class Casino_Wars extends CardGame {
-    /* By default, these exist from the parent
-    *  protected CardDeck cardDeck = new CardDeck();
-    *  protected ArrayList<Card> userHand = new ArrayList<Card>();
-    *  protected ArrayList<Card> dealerHand = new ArrayList<Card>();
-    * */
+
     protected ArrayList<Card> dumpCards = new ArrayList<Card>(104);
     int numberofWar = 0;
 
@@ -19,12 +15,6 @@ public class Casino_Wars extends CardGame {
         this.userHand = new ArrayList<Card>();
     }
 
-    // Initialize/shuffle deck
-
-
-
-
-
     public void dealCards() {
         /* inputDeck is the deck to deal from - can be userDeck or dealerDeck
         * burnCards is number of cards to burn prior to picking */
@@ -32,43 +22,6 @@ public class Casino_Wars extends CardGame {
         dealCard(userHand);
         dealCard(dealerHand);
     }
-
-
-
-
-    public int warDrawCard(ArrayList<Card> aHand) {
-
-        for(int i = 0; i < 3; i++) {
-            dealCard(dumpCards);
-        }
-        dealCard(aHand);
-        return dumpCards.size();
-    }
-
-    public void warDealCards() {
-        warDrawCard(userHand);
-        warDrawCard(dealerHand);
-    }
-
-
-    /*
-    private void burnCards(CardDeck inputDeck, int burnCards){
-        for (int i = 0; i<burnCards ; i++) {
-            dumpCards.add(inputDeck.getNextCard());
-        }
-    }
-    */
-
-    // Make One Method, Modify userCard to Hand
-
-    /*
-    public boolean isUserCardGreaterThanDealerCard(Card userCard, Card dealerCard){
-        return userCard.getRank().ordinal() > dealerCard.getRank().ordinal();
-    }
-    public boolean isUserCardEqualDealerCard(Card userCard, Card dealerCard){
-        return userCard.getRank().ordinal() == dealerCard.getRank().ordinal();
-    }
-    */
 
     public int getCardScore(ArrayList<Card> aHand) {
         if (aHand.get(aHand.size() - 1).getRank() != Ranks.ACE) {
@@ -115,22 +68,6 @@ public class Casino_Wars extends CardGame {
         return getCardScore(userHand) != getCardScore(dealerHand);
     }
 
-    public void playRound(UserIO aUI) {
-        currentBet = aUI.askForBet();
-        initializeCW();
-        dealCards();
-        if (!isNotWar()) {
-            //   displayWinner(aUI);
-            while (isNotWar() == false) {
-                numberofWar += 2;
-                warDealCards();
-                // displayWinner(aUI);
-            }
-        } else {
-            //   displayWinner(aUI);
-        }
-        clearBet();
-    }
 
     public double payOut(UserIO aUI, double aPayOut) {
         double total;

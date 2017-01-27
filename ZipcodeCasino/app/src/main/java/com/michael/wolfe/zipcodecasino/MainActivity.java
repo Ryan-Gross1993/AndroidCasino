@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnBlackJack = (Button) findViewById(R.id.btnBlackJack);
         btnCasinoWar = (Button) findViewById(R.id.btnCasinoWar);
         btnPoker = (Button) findViewById(R.id.btnPoker);
-        btnRoulette = (Button) findViewById(R.id.btnRoulette);
+        // btnRoulette = (Button) findViewById(R.id.btnRoulette);
         tvUserBalance = (TextView) findViewById(R.id.tvUserBalance);
 
         tvUserBalance.setText("$100.00");
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnBlackJack.setOnClickListener(this);
         btnCasinoWar.setOnClickListener(this);
         btnPoker.setOnClickListener(this);
-        btnRoulette.setOnClickListener(this);
+        //btnRoulette.setOnClickListener(this);
 
     }
 

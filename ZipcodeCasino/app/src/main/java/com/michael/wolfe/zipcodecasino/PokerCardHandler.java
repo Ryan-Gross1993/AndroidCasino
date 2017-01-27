@@ -29,6 +29,10 @@ public class PokerCardHandler {
     }
 
     public void createHand(){
+        deck = new CardDeck();
+        {
+            deck.shuffle();
+        }
         for ( int i = 0; i < sizeOfHand; i++) {
             playerHand.put(i, deck.getNextCard());
         }
@@ -54,6 +58,9 @@ public class PokerCardHandler {
 
 
     void setCardsToReplace(int[] cardNumber) {
+        for ( int i = 0; i < sizeOfHand; i++) {
+            cardsToReplace.put(i, false);
+        }
         for (int i = 0; i < cardNumber.length; i++) {
             cardsToReplace.put(cardNumber[i], true);
         }
