@@ -24,8 +24,8 @@
             android:layout_height="match_parent"
             android:textSize="25dp"
             android:id="@+id/tvUserBalance"/>
-
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

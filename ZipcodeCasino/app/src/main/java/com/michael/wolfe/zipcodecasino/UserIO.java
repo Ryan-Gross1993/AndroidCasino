@@ -10,8 +10,10 @@ public class UserIO {
     // Should these be static?
     protected static double userBalance = 100.0;
     public static String userName;
-    protected Scanner userInput = new Scanner(System.in);
+    public Scanner userInput = new Scanner(System.in);
     protected boolean playAgain = true;
+    //   protected int currentBet;
+    //AsciiImages images = new AsciiImages();
 
     public UserIO(double aBalance, String aName) {
         this.userBalance = aBalance;
@@ -19,7 +21,6 @@ public class UserIO {
     }
 
     public UserIO() {
-
     }
 
     public String getUserName() {
@@ -43,11 +44,13 @@ public class UserIO {
     }
 
     public void getNameIO() {
+        //System.out.println(images.greeting());
         userName = userInput.next();
     }
 
     public void welcome() {
-        System.out.println("Welcome the Ginzberger Casion!\n" +
+
+        System.out.println("Welcome the Ginzberger Casino!\n" +
                 "What is your name?");
         this.getNameIO();
         System.out.println("Cool, " + this.userName + ". Here's $100. Good luck!");
@@ -87,13 +90,16 @@ public class UserIO {
         return answer;
     }
 
-
     // Current Balance Method
-
     public String displayUserBalance() {
         String answer = "Your current balance is $" + userBalance;
         System.out.println(answer);
         return answer;
     }
-// setter
+
+    public void setPlayAgain(String playAgain) {
+        if (playAgain.equalsIgnoreCase("N")){
+            this.playAgain = false;
+        }
+    }
 }

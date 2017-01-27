@@ -5,14 +5,12 @@ package com.michael.wolfe.zipcodecasino;
  */
 
 public class PokerInputParser {
+    String[] items;
+    int[] results;
     public int[] parseUserInput(String input){
-        if (input.equals("none")){
-            int[] results = new int[0];
-            return results;
-        }
-        String[] items = input.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\s", "").split(",");
-        int[] results = new int[items.length];
-        for (int i = 0; i < items.length; i++) {
+        items = input.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\s", "").split(",");
+        results = new int[items.length];
+        for (int i = 0; i < results.length; i++) {
             try {
                 results[i] = Integer.parseInt(items[i]);
             } catch (NumberFormatException nfe) {
@@ -20,5 +18,9 @@ public class PokerInputParser {
             }
         }
         return results;
+    }
+//Thanks stack overflow
+    public boolean isNumeric(String s) {
+        return s.matches("[-+]?\\d*\\.?\\d+");
     }
 }

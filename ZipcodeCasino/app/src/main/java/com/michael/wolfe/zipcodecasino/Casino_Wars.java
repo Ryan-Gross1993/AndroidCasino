@@ -5,19 +5,12 @@ package com.michael.wolfe.zipcodecasino;
  */
 import java.util.ArrayList;
 
-/**
- * Created by mkulima on 1/25/17.
- */
 public class Casino_Wars extends CardGame {
     /* By default, these exist from the parent
     *  protected CardDeck cardDeck = new CardDeck();
     *  protected ArrayList<Card> userHand = new ArrayList<Card>();
     *  protected ArrayList<Card> dealerHand = new ArrayList<Card>();
     * */
-    //  protected CardDeck dealerDeck = new CardDeck();
-    // protected CardDeck userDeck = new CardDeck();
-    // protected Card dealerCard;
-    // protected Card userCard;
     protected ArrayList<Card> dumpCards = new ArrayList<Card>(104);
     int numberofWar = 0;
 
@@ -72,7 +65,6 @@ public class Casino_Wars extends CardGame {
     public boolean isUserCardGreaterThanDealerCard(Card userCard, Card dealerCard){
         return userCard.getRank().ordinal() > dealerCard.getRank().ordinal();
     }
-
     public boolean isUserCardEqualDealerCard(Card userCard, Card dealerCard){
         return userCard.getRank().ordinal() == dealerCard.getRank().ordinal();
     }
@@ -95,8 +87,8 @@ public class Casino_Wars extends CardGame {
             //payOut(aUI, currentBet * 2);
             // PAYOUT
             //
-           // aUI.displayTurn(answer);
-           // aUI.displayUserBalance();
+            // aUI.displayTurn(answer);
+            // aUI.displayUserBalance();
         } else if (lessThanDealer()) {
             answer += "The dealer's " + getCardScore(dealerHand) + "beats your " + getCardScore(userHand) + "!\n" +
                     "\nYou lose the round.";
@@ -105,7 +97,7 @@ public class Casino_Wars extends CardGame {
         } else {
             answer += "Both players are at " + getCardScore(userHand) + "!\n" +
                     "\nWar! And, what is it good for? Absolutely nothing! Draw again.";
-           // aUI.displayTurn(answer);
+            // aUI.displayTurn(answer);
         }
         return answer;
     }
@@ -128,14 +120,14 @@ public class Casino_Wars extends CardGame {
         initializeCW();
         dealCards();
         if (!isNotWar()) {
-         //   displayWinner(aUI);
+            //   displayWinner(aUI);
             while (isNotWar() == false) {
                 numberofWar += 2;
                 warDealCards();
-               // displayWinner(aUI);
+                // displayWinner(aUI);
             }
         } else {
-         //   displayWinner(aUI);
+            //   displayWinner(aUI);
         }
         clearBet();
     }
@@ -160,5 +152,4 @@ public class Casino_Wars extends CardGame {
     public void initializeCW() {
         cardDeck.shuffle();
     }
-
 }

@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-/*
- * Created by ryangross on 1/26/17.
+/**
+ * Created by Wolfe on 1/27/2017.
  */
 
 public class BlackJackActivity extends AppCompatActivity implements View.OnClickListener {
@@ -103,16 +101,11 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
                         dealOnce(userScoreTV, aBlackJack.dealerHand);
                     }
 
-                userScoreTV.append(aBlackJack.displayAllCards("You", aBlackJack.userHand));
-                userScoreTV.append(aBlackJack.displayAllCards("Dealer", aBlackJack.dealerHand));
-             }
-
-
+                    userScoreTV.append(aBlackJack.displayAllCards("You", aBlackJack.userHand));
+                    userScoreTV.append(aBlackJack.displayAllCards("Dealer", aBlackJack.dealerHand));
                 }
-            }
+
 
         }
-
-
-
-
+    }
+}

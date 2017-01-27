@@ -1,5 +1,9 @@
 package com.michael.wolfe.zipcodecasino;
 
+/**
+ * Created by Wolfe on 1/27/2017.
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-/**
- * Created by ryangross on 1/27/17.
- */
-
-public class CasinoWarActivity extends AppCompatActivity implements View.OnClickListener{
+public class CasinoWarActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnCWDeal;
     Button btnCWHit;
     Casino_Wars aCasinoWar = new Casino_Wars();
@@ -26,7 +25,7 @@ public class CasinoWarActivity extends AppCompatActivity implements View.OnClick
         btnCWDeal = (Button) findViewById(R.id.btnWarStart);
         btnCWHit = (Button) findViewById(R.id.btnWarHit);
         btnCWDeal.setOnClickListener(this);
-       btnCWHit.setOnClickListener(this);
+        btnCWHit.setOnClickListener(this);
     }
 
 
@@ -35,7 +34,6 @@ public class CasinoWarActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         Intent intent;
         int id = v.getId();
-        TextView startCWTV = (TextView) findViewById(R.id.btnWarStart);
         TextView displayAnswerTV = (TextView) findViewById(R.id.displayWarTV);
 
         switch(id) {

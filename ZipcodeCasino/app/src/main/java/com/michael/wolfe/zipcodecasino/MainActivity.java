@@ -1,6 +1,5 @@
 package com.michael.wolfe.zipcodecasino;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,9 +11,9 @@ import android.widget.TextView;
  * Created by Wolfe on 1/26/2017.
  */
 
-public class MainActivity extends Activity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     Button btnBlackJack;
-    Button btnCW;
+    Button btnCasinoWar;
     Button btnPoker;
     Button btnRoulette;
     TextView tvUserBalance;
@@ -25,7 +24,7 @@ public class MainActivity extends Activity implements  View.OnClickListener{
         setContentView(R.layout.main_layout);
 
         btnBlackJack = (Button) findViewById(R.id.btnBlackJack);
-        btnCW = (Button) findViewById(R.id.btnCasinoWar);
+        btnCasinoWar = (Button) findViewById(R.id.btnCasinoWar);
         btnPoker = (Button) findViewById(R.id.btnPoker);
         btnRoulette = (Button) findViewById(R.id.btnRoulette);
         tvUserBalance = (TextView) findViewById(R.id.tvUserBalance);
@@ -34,7 +33,7 @@ public class MainActivity extends Activity implements  View.OnClickListener{
 
 
         btnBlackJack.setOnClickListener(this);
-        btnCW.setOnClickListener(this);
+        btnCasinoWar.setOnClickListener(this);
         btnPoker.setOnClickListener(this);
         btnRoulette.setOnClickListener(this);
 
@@ -50,13 +49,20 @@ public class MainActivity extends Activity implements  View.OnClickListener{
                 intent = new Intent(getApplicationContext(), BlackJackActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnCasinoWar:
-                intent = new Intent(getApplicationContext(), CasinoWarActivity.class);
-                startActivity(intent);
-                break;
+
+           case R.id.btnCasinoWar:
+               intent = new Intent(getApplicationContext(), CasinoWarActivity.class);
+               startActivity(intent);
+               break;
+             case R.id.btnPoker:
+               intent = new Intent(getApplicationContext(), PokerActivity.class);
+               startActivity(intent);
+               break;
+           /*case R.id.btnRoulette:
+               intent = new Intent(getApplicationContext(), RouletteActivity.class);
+               break;
+               */
         }
     }
 
-    }
-
-
+}
