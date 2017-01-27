@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 /*
  * Created by ryangross on 1/26/17.
  */
@@ -44,11 +46,11 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
         v.setText(answer);
     }
 
-    public void dealOnce(TextView v) {
-        aBlackJack.dealCard(aBlackJack.userHand);
-        v.append(String.valueOf("\nYou're now at: " + aBlackJack.regularScore(aBlackJack.userHand)));
+    public void dealOnce(TextView v, ArrayList<Card> aHand) {
+        aBlackJack.dealCard(aHand);
+        v.append(String.valueOf("\nYou're now at: " + aBlackJack.regularScore(aHand)));
 
-        if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
+        if ( (aBlackJack.isOver(aHand, 21)) && (aBlackJack.userHand.equals(aHand))) {
             v.append("\n Busted!");
         }
     }
@@ -65,9 +67,10 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
             case R.id.btnDeal:
                 aBlackJack.initializeBJD();
                 aBlackJack.dealCards();
+                aBlackJack.calculateScore(aBlackJack.userHand);
 
                 if (aBlackJack.blackJackRound()) {
-                    userScoreTV.append(aBlackJack.displayAllDealerCards(aUI));
+                    userScoreTV.append(aBlackJack.displayAllCards("dealer", aBlackJack.dealerHand));
                     userScoreTV.append(aBlackJack.compareScores(aUI));
                     changeBalance(userBalanceTV);
                     break;
@@ -77,25 +80,39 @@ public class BlackJackActivity extends AppCompatActivity implements View.OnClick
                 }
 
             case R.id.btnHit:
-
                 if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
-                    userScoreTV.append("\nYou busted!");
-                    userScoreTV.append(aBlackJack.compareScores(aUI));
-                    //changeBalance(userBalanceTV);
+                    return;
                 } else {
-                    dealOnce(userScoreTV);
-                    if (aBlackJack.isOver(aBlackJack.userHand, 21)) {
-                        userScoreTV.append("\n" + aBlackJack.displayAllDealerCards(aUI));
-                        userScoreTV.append("\n" + aBlackJack.compareScores(aUI));
-                        //changeBalance(userBalanceTV);
-                        break;
-                    } else {
-                        break;
-                    }
-                }
-        }
-    }
+                    dealOnce(userScoreTV, aBlackJack.userHand);
+                    //userScoreTV.append(aBlackJack.displayAllCards("dealer", aBlackJack.dealerHand));
+                    userScoreTV.append(aBlackJack.displayAllCards("You", aBlackJack.userHand));
 
-}
+                }
+                break;
+
+            case R.id.btnStay:
+
+                if (aBlackJack.isOver(aBlackJack.dealerHand, 17)) {
+                    userScoreTV.append(aBlackJack.displayAllCards("You", aBlackJack.userHand));
+                    userScoreTV.append(aBlackJack.displayAllCards("Dealer", aBlackJack.dealerHand));
+                    userScoreTV.append(aBlackJack.compareScores(aUI));
+
+                } else if (!aBlackJack.isOver(aBlackJack.dealerHand, 17)) {
+
+                    while (aBlackJack.calculateScore(aBlackJack.dealerHand) <= 17) {
+                        dealOnce(userScoreTV, aBlackJack.dealerHand);
+                    }
+
+                userScoreTV.append(aBlackJack.displayAllCards("You", aBlackJack.userHand));
+                userScoreTV.append(aBlackJack.displayAllCards("Dealer", aBlackJack.dealerHand));
+             }
+
+
+                }
+            }
+
+        }
+
+
 
 

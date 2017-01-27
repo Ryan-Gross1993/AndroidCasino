@@ -56,13 +56,12 @@ public class BlackJack extends CardGame {
         return score;
     }
 
-    public String displayAllDealerCards(UserIO aUI) {
-        String hand = "Dealer has a ";
-        for(int i = 0; i < dealerHand.size(); i++) {
-            hand += dealerHand.get(i).getRank() + " of " + dealerHand.get(i).getSuit() + ", ";
+    public String displayAllCards(String name, ArrayList<Card> aHand) {
+        String hand = "\n" + name + " have a ";
+        for(int i = 0; i < aHand.size(); i++) {
+            hand += aHand.get(i).getRank() + " of " + aHand.get(i).getSuit() + ",\n ";
         }
-        hand += "\nDealer's total score is: " + calculateScore(dealerHand);
-        aUI.displayTurn(hand);
+        hand += "\n" + name + "'s total score is: " + calculateScore(aHand);
         return hand;
     }
 
@@ -180,7 +179,7 @@ public class BlackJack extends CardGame {
                         aUI.displayTurn(display);
                     } else {
                         display += "Dealer busted at: " + this.calculateScore(dealerHand) + "\n";
-                        displayAllDealerCards(aUI);
+                      //  displayAllDealerCards(aUI);
                     }
                 }
             }
@@ -230,7 +229,7 @@ public class BlackJack extends CardGame {
 
         if (calculateScore(userHand) > (calculateScore(dealerHand))) {
             if (!isOver(userHand, 21)) {
-                answer = "\nYou win $" + currentBet + "!";
+                answer = "\nYou win!";
                 winnings = (currentBet * 2);
               //  payOut(aUI, winnings);
             } else {
@@ -240,7 +239,7 @@ public class BlackJack extends CardGame {
             if (!isOver(dealerHand, 21)) {
                 answer = "\nSorry, you lose.";
             } else {
-                answer = "\nYou win $ " + currentBet + " !";
+                answer = "\nYou win!";
                 winnings = (currentBet * 2);
                 //payOut(aUI, winnings);
             }
@@ -284,11 +283,11 @@ public class BlackJack extends CardGame {
         showCards(aUI);
 
         if(blackJackRound()){
-            displayAllDealerCards(aUI);
+         //   displayAllDealerCards(aUI);
             compareFirstDrawScores(aUI);
         } else {
             userTurn(aUI);
-            displayAllDealerCards(aUI);
+           // displayAllDealerCards(aUI);
             dealerTurn(aUI);
             compareScores(aUI);
             aUI.displayUserBalance();

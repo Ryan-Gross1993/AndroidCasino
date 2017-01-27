@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements  View.OnClickListener{
     Button btnBlackJack;
-    Button btnCasinoWar;
+    Button btnCW;
     Button btnPoker;
     Button btnRoulette;
     TextView tvUserBalance;
@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements  View.OnClickListener{
         setContentView(R.layout.main_layout);
 
         btnBlackJack = (Button) findViewById(R.id.btnBlackJack);
-        btnCasinoWar = (Button) findViewById(R.id.btnCasinoWar);
+        btnCW = (Button) findViewById(R.id.btnCasinoWar);
         btnPoker = (Button) findViewById(R.id.btnPoker);
         btnRoulette = (Button) findViewById(R.id.btnRoulette);
         tvUserBalance = (TextView) findViewById(R.id.tvUserBalance);
@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements  View.OnClickListener{
 
 
         btnBlackJack.setOnClickListener(this);
-        btnCasinoWar.setOnClickListener(this);
+        btnCW.setOnClickListener(this);
         btnPoker.setOnClickListener(this);
         btnRoulette.setOnClickListener(this);
 
@@ -50,18 +50,10 @@ public class MainActivity extends Activity implements  View.OnClickListener{
                 intent = new Intent(getApplicationContext(), BlackJackActivity.class);
                 startActivity(intent);
                 break;
-            /*
             case R.id.btnCasinoWar:
-                intent = new Intent(getApplicationContext(), Casino_WarsActivity.class);
+                intent = new Intent(getApplicationContext(), CasinoWarActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnPoker:
-                intent = new Intent(getApplicationContext(), PokerActivity.class);
-                break;
-            case R.id.btnRoulette:
-                intent = new Intent(getApplicationContext(), RouletteActivity.class);
-                break;
-                */
         }
     }
 
