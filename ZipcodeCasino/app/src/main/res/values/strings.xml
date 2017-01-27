@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ZipcodeCasino</string>
+    <string name="title_activity_black_jack">BlackJackActivity</string>
 </resources>

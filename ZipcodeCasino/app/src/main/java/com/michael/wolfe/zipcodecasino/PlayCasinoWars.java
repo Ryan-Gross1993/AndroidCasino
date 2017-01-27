@@ -6,7 +6,7 @@ package com.michael.wolfe.zipcodecasino;
 
 public class PlayCasinoWars {
     Casino_Wars casinoWars = new Casino_Wars();
-    User wooMan = new User("Woo Man", 1000);
+    //User wooMan = new User("Woo Man", 1000);
     double userBet = 0;
 
 

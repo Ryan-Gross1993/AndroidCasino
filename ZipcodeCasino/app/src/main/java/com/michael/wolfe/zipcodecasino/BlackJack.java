@@ -102,6 +102,9 @@ public class BlackJack extends CardGame {
         }
     }
 
+
+
+
     public String hitOrSurrender(UserIO uIO) {
         if (calculateScore(userHand) <= 21) {
             System.out.println("Hit, or stay?");
@@ -113,9 +116,13 @@ public class BlackJack extends CardGame {
         }
     }
 
+
+
     public boolean isOver(ArrayList<Card> aHand, int number) {
         return (calculateScore(aHand) > number);
     }
+
+
 
     public int handSize(ArrayList<Card> aHand) {
         return aHand.size();
@@ -124,10 +131,24 @@ public class BlackJack extends CardGame {
     public void hit(String aString, UserIO aUI, ArrayList<Card> aHand) {
         this.dealCard(aHand);
         Card drawnCard = userHand.get(userHand.size() - 1);
-        aString += "You hit and got a " + drawnCard.getRank() + " of " + drawnCard.getSuit() +
-                ". Score is now: " + this.calculateScore(aHand);
+        aString += "You hit and got a " + drawnCard.getRank() + " of " + drawnCard.getSuit() + ".\n" +
+                "Score is now: " + this.calculateScore(aHand);
         aUI.displayTurn(aString);
     }
+
+    public String hitForAndroid(UserIO aUI, ArrayList<Card> aHand) {
+        String answer = "";
+        this.dealCard(aHand);
+        Card drawnCard = userHand.get(userHand.size() - 1);
+        answer += "\nYou hit and got a " + drawnCard.getRank() + " of " + drawnCard.getSuit() + "\n" +
+                "Score is now: " + this.calculateScore(aHand);
+        return answer;
+    }
+
+
+
+
+    //public String hitforAndroid(UserIO aUI, ArrayList<Card>)
 
     public String showCards(UserIO aUI) {
         String answer = "Dealer: " + this.dealerHand.get(1).getRank() + " of " + this.dealerHand.get(1).getSuit() + "\n" +
@@ -137,6 +158,9 @@ public class BlackJack extends CardGame {
         aUI.displayTurn(answer);
         return answer;
     }
+
+
+
 
     public void dealerTurn(UserIO aUI) {
         String display = "";
@@ -165,7 +189,17 @@ public class BlackJack extends CardGame {
 
 
 
-
+    public double payOutforAndroid(UserIO aUI) {
+        double currentBalance = 0;
+        if (blackJackOnDrawUser()) {
+            currentBalance += currentBet * 2.5;
+        } else if ( ((isOver(dealerHand, 21)) && (!isOver(userHand,21))) || (calculateScore(userHand) > calculateScore(dealerHand))) {
+            currentBalance += currentBet * 2;
+        } else if (calculateScore(userHand) == calculateScore(dealerHand)) {
+            currentBalance += currentBet;
+        }
+        return currentBalance;
+    }
 
     public double payOut(UserIO aUI, double aPayOut) {
         double total;
@@ -196,25 +230,25 @@ public class BlackJack extends CardGame {
 
         if (calculateScore(userHand) > (calculateScore(dealerHand))) {
             if (!isOver(userHand, 21)) {
-                answer = "You win $" + currentBet + "!";
+                answer = "\nYou win $" + currentBet + "!";
                 winnings = (currentBet * 2);
-                payOut(aUI, winnings);
+              //  payOut(aUI, winnings);
             } else {
-                answer = "Sorry, you lose.";
+                answer = "\nSorry, you lose.";
             }
         } else if (calculateScore(userHand) < calculateScore(dealerHand)) {
             if (!isOver(dealerHand, 21)) {
-                answer = "Sorry, you lose.";
+                answer = "\nSorry, you lose.";
             } else {
-                answer = "You win $ " + currentBet + " !";
+                answer = "\nYou win $ " + currentBet + " !";
                 winnings = (currentBet * 2);
-                payOut(aUI, winnings);
+                //payOut(aUI, winnings);
             }
         } else{
-            answer = "Push! Both hands are tied at " + calculateScore(userHand) + "!";
-            payOut(aUI, currentBet);
+            answer = "\nPush! Both hands are tied at " + calculateScore(userHand) + "!";
+          //  payOut(aUI, currentBet);
         }
-        aUI.displayTurn(answer);
+       // aUI.displayTurn(answer);
         return answer;
     }
 
